@@ -22,65 +22,73 @@ export default function Home() {
   }
 
   const images = [
-    { src: 'tea-man.jpg', className: 'top-10 left-10 rotate-[-6deg]' },
-    { src: 'camel-alone.jpg', className: 'top-32 right-10 rotate-3' },
-    { src: 'desert-teaset.jpg', className: 'bottom-10 left-16 rotate-2' },
-    { src: 'interior-sitting.jpg', className: 'bottom-20 right-20 rotate-[-3deg]' },
-    { src: 'jeep-journey.jpg', className: 'top-1/2 left-5 rotate-2' },
-    { src: 'hero-tomb.jpg', className: 'bottom-1/3 right-10 rotate-[-5deg]' },
+    { src: 'tea-man.jpg', className: 'top-4 left-4 rotate-[-6deg]' },
+    { src: 'camel-alone.jpg', className: 'top-6 right-6 rotate-3' },
+    { src: 'jeep-journey.jpg', className: 'bottom-6 left-6 rotate-2' },
+    { src: 'hero-tomb.jpg', className: 'bottom-8 right-6 rotate-[-4deg]' },
   ]
 
   return (
-    <main className="relative min-h-screen bg-white text-white overflow-hidden">
-      {/* Polaroid background images */}
-      {images.map((img, index) => (
-        <img
-          key={index}
-          src={`/${img.src}`}
-          alt=""
-          className={`absolute w-32 md:w-40 shadow-lg border-4 border-white ${img.className} hidden sm:block`}
-          style={{ zIndex: 1 }}
-        />
-      ))}
+    <main className="bg-black text-white">
+      {/* Hero Section */}
+      <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-4 overflow-hidden">
+        {/* Polaroid-style images positioned inside the hero */}
+        {images.map((img, index) => (
+          <img
+            key={index}
+            src={`/${img.src}`}
+            alt=""
+            className={`absolute w-28 md:w-36 shadow-lg border-4 border-white ${img.className}`}
+            style={{ zIndex: 1 }}
+          />
+        ))}
 
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-black bg-opacity-60 z-10" />
+        {/* Hero Content */}
+        <div className="relative z-10 max-w-xl">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            Discover Hidden Destinations with <span className="text-[#f1c27d]">Rehla</span>
+          </h1>
+          <p className="text-lg text-white font-semibold mb-6">
+            Explore off-the-grid, culturally rich, and eco-conscious journeys across the MENA region.
+          </p>
 
-      {/* Content */}
-      <div className="relative z-20 flex flex-col items-center justify-center min-h-screen px-4 text-center">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4 text-green-300">
-          Discover Hidden Destinations with <span className="text-white">Rehla</span>
-        </h1>
-        <p className="text-lg text-gray-300 mb-6 max-w-xl">
-          Explore off-the-grid, culturally rich, and eco-conscious journeys across the MENA region.
-        </p>
+          {submitted ? (
+            <p className="text-[#f1c27d] font-semibold">Thanks! You’ve joined the waitlist.</p>
+          ) : (
+            <form onSubmit={handleSubmit} className="w-full max-w-md mx-auto">
+              <input type="hidden" name="_captcha" value="false" />
+              <input
+                type="email"
+                name="email"
+                required
+                placeholder="Enter your email"
+                className="w-full px-4 py-3 mb-4 border border-gray-500 rounded-xl bg-white text-black placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#f1c27d]"
+              />
+              <button
+                type="submit"
+                className="w-full bg-[#f1c27d] hover:bg-[#d9a867] text-black font-semibold py-3 rounded-xl transition-colors"
+              >
+                Join the Waitlist
+              </button>
+            </form>
+          )}
 
-        {submitted ? (
-          <p className="text-green-400 font-semibold">Thanks! You’ve joined the waitlist.</p>
-        ) : (
-          <form onSubmit={handleSubmit} className="w-full max-w-md">
-            <input type="hidden" name="_captcha" value="false" />
-            <input
-              type="email"
-              name="email"
-              required
-              placeholder="Enter your email"
-              className="w-full px-4 py-3 mb-4 border border-gray-300 rounded-xl text-black focus:outline-none focus:ring-2 focus:ring-green-500"
-            />
-            <button
-              type="submit"
-              className="w-full bg-green-600 text-white py-3 rounded-xl hover:bg-green-700 transition-colors"
-            >
-              Join the Waitlist
-            </button>
-          </form>
-        )}
+          <p className="text-sm text-gray-400 mt-4">No spam. Just soulful travel updates.</p>
+        </div>
+      </section>
 
-        <p className="text-sm text-gray-400 mt-4">No spam. Just soulful travel updates.</p>
-      </div>
+      {/* About Rehla Section */}
+      <section className="bg-gradient-to-b from-black to-[#0a0a0a] py-20 px-6 border-t border-gray-800">
+        <div className="max-w-2xl mx-auto bg-[#111] rounded-xl p-8 shadow-lg">
+          <h2 className="text-3xl font-semibold text-white mb-6 text-center">What is Rehla?</h2>
+          <p className="text-white text-lg leading-relaxed text-center">
+            <strong>Rehla</strong> is more than a travel platform — it’s a movement. 
+            We help you discover hidden destinations across the MENA region that honour culture, sustainability, and soul. 
+            Whether it's ancient deserts, quiet villages, or vibrant traditions, Rehla brings you closer to the places that matter — 
+            and the people who make them unforgettable.
+          </p>
+        </div>
+      </section>
     </main>
   )
 }
-
-
-
