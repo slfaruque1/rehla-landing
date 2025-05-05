@@ -21,36 +21,37 @@ export default function Home() {
     }
   }
 
-  return (
-    <main className="relative min-h-screen text-white overflow-hidden">
-      {/* Scrolling image gallery in background */}
-      <div className="absolute inset-0 z-0 overflow-hidden">
-        <div className="flex min-w-[200vw] animate-scrollGallery space-x-4 h-screen">
-          {[
-            'tea-man.jpg',
-            'camel-alone.jpg',
-            'desert-teaset.jpg',
-            'interior-sitting.jpg',
-            'jeep-journey.jpg',
-            'hero-tomb.jpg',
-          ].map((img, index) => (
-            <img
-              key={index}
-              src={`/${img}`}
-              alt=""
-              className="h-screen w-auto object-cover flex-shrink-0 border-4 border-red-500"
-            />
-          ))}
-        </div>
-        <div className="absolute inset-0 bg-black bg-opacity-60 z-10" />
-      </div>
+  const images = [
+    { src: 'tea-man.jpg', className: 'top-10 left-10 rotate-[-6deg]' },
+    { src: 'camel-alone.jpg', className: 'top-32 right-10 rotate-3' },
+    { src: 'desert-teaset.jpg', className: 'bottom-10 left-16 rotate-2' },
+    { src: 'interior-sitting.jpg', className: 'bottom-20 right-20 rotate-[-3deg]' },
+    { src: 'jeep-journey.jpg', className: 'top-1/2 left-5 rotate-2' },
+    { src: 'hero-tomb.jpg', className: 'bottom-1/3 right-10 rotate-[-5deg]' },
+  ]
 
-      {/* Main content over the gallery */}
-      <div className="relative z-20 flex flex-col items-center justify-center h-screen px-4 text-center">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">
-          Discover Hidden Destinations with <span className="text-green-300">Rehla</span>
+  return (
+    <main className="relative min-h-screen bg-white text-white overflow-hidden">
+      {/* Polaroid background images */}
+      {images.map((img, index) => (
+        <img
+          key={index}
+          src={`/${img.src}`}
+          alt=""
+          className={`absolute w-32 md:w-40 shadow-lg border-4 border-white ${img.className} hidden sm:block`}
+          style={{ zIndex: 1 }}
+        />
+      ))}
+
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-black bg-opacity-60 z-10" />
+
+      {/* Content */}
+      <div className="relative z-20 flex flex-col items-center justify-center min-h-screen px-4 text-center">
+        <h1 className="text-4xl md:text-5xl font-bold mb-4 text-green-300">
+          Discover Hidden Destinations with <span className="text-white">Rehla</span>
         </h1>
-        <p className="text-lg text-gray-200 mb-6 max-w-xl">
+        <p className="text-lg text-gray-300 mb-6 max-w-xl">
           Explore off-the-grid, culturally rich, and eco-conscious journeys across the MENA region.
         </p>
 
@@ -80,5 +81,6 @@ export default function Home() {
     </main>
   )
 }
+
 
 
