@@ -9,12 +9,12 @@ export default function Home() {
     const form = e.currentTarget as HTMLFormElement
     const formData = new FormData(form)
 
-    const response = await fetch('https://formspree.io/f/myzwwked', {
+    const response = await fetch('https://formsubmit.co/sharminfaruque2@gmail.com', {
       method: 'POST',
       headers: {
-        Accept: 'application/json'
+        Accept: 'application/json',
       },
-      body: formData
+      body: formData,
     })
 
     if (response.ok) {
@@ -37,6 +37,7 @@ export default function Home() {
           <p className="text-green-700 font-semibold">Thanks! You’ve joined the waitlist.</p>
         ) : (
           <form onSubmit={handleSubmit} className="w-full max-w-md mx-auto">
+            <input type="hidden" name="_captcha" value="false" />
             <input
               type="email"
               name="email"
@@ -60,4 +61,5 @@ export default function Home() {
     </main>
   )
 }
+
 
