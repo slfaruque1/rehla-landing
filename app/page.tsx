@@ -9,11 +9,12 @@ export default function Home() {
           Rehla helps you find off-the-grid, eco-conscious, and culturally rich travel experiences across the MENA region.
         </p>
 
-        <form
-          className="w-full max-w-md mx-auto"
-          name="waitlist"
-          method="POST"
-          data-netlify="true"
+        <<form
+  className="w-full max-w-md mx-auto"
+  action="https://formspree.io/f/myzwwked"
+  method="POST"
+>
+
         >
           <input type="hidden" name="form-name" value="waitlist" />
           <input
