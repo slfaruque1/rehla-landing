@@ -1,5 +1,5 @@
 'use client'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 export default function Home() {
   const [submitted, setSubmitted] = useState(false)
@@ -23,9 +23,9 @@ export default function Home() {
 
   return (
     <main className="relative min-h-screen text-white overflow-hidden">
-      {/* Scrolling background */}
+      {/* Scrolling image gallery in background */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        <div className="flex animate-scrollGallery space-x-4 h-full">
+        <div className="flex w-[300%] animate-scrollGallery space-x-4 h-full">
           {[
             'tea-man.jpg',
             'camel-alone.jpg',
@@ -42,11 +42,10 @@ export default function Home() {
             />
           ))}
         </div>
-        {/* Dark overlay for readability */}
         <div className="absolute inset-0 bg-black bg-opacity-60 z-10" />
       </div>
 
-      {/* Hero Content */}
+      {/* Main content over the gallery */}
       <div className="relative z-20 flex flex-col items-center justify-center h-screen px-4 text-center">
         <h1 className="text-4xl md:text-5xl font-bold mb-4">
           Discover Hidden Destinations with <span className="text-green-300">Rehla</span>
@@ -75,6 +74,7 @@ export default function Home() {
             </button>
           </form>
         )}
+
         <p className="text-sm text-gray-400 mt-4">No spam. Just soulful travel updates.</p>
       </div>
     </main>
