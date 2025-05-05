@@ -38,7 +38,7 @@ export default function Home() {
               key={index}
               src={`/${img}`}
               alt=""
-              className="h-screen w-auto object-cover flex-shrink-0"
+              className="h-screen w-auto object-cover flex-shrink-0 border-4 border-red-500"
             />
           ))}
         </div>
@@ -80,7 +80,5 @@ export default function Home() {
     </main>
   )
 }
-
-
 
 
