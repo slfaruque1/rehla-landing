@@ -25,7 +25,7 @@ export default function Home() {
     <main className="relative min-h-screen text-white overflow-hidden">
       {/* Scrolling image gallery in background */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        <div className="flex w-[300%] animate-scrollGallery space-x-4 h-full">
+        <div className="flex min-w-[200vw] animate-scrollGallery space-x-4 h-screen">
           {[
             'tea-man.jpg',
             'camel-alone.jpg',
