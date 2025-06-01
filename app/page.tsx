@@ -32,7 +32,6 @@ export default function Home() {
     <main className="bg-black text-white">
       {/* Hero Section */}
       <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-4 overflow-hidden">
-        {/* Polaroid-style images positioned inside the hero */}
         {images.map((img, index) => (
           <img
             key={index}
@@ -43,7 +42,6 @@ export default function Home() {
           />
         ))}
 
-        {/* Hero Content */}
         <div className="relative z-10 max-w-xl">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             Discover Hidden Destinations with <span className="text-[#f1c27d]">Rehla</span>
@@ -74,10 +72,19 @@ export default function Home() {
           )}
 
           <p className="text-sm text-gray-400 mt-4">No spam. Just soulful travel updates.</p>
+
+          <a
+            href="https://rihlo-app.vercel.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block mt-6 px-6 py-3 bg-white text-black font-semibold rounded-xl hover:bg-gray-200 transition-colors"
+          >
+            Enter App
+          </a>
         </div>
       </section>
 
-      {/* About Rehla Section */}
+      {/* About Section */}
       <section className="bg-gradient-to-b from-black to-[#0a0a0a] py-20 px-6 border-t border-gray-800">
         <div className="max-w-2xl mx-auto bg-[#111] rounded-xl p-8 shadow-lg">
           <h2 className="text-3xl font-semibold text-white mb-6 text-center">What is Rehla?</h2>
